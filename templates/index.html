@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Poll</title>
+</head>
+<body>
+<header>
+    <h1>
+  Poll
+</h1>
+    <a href="{% url 'home' %}">
+      Home
+    </a>
+    <br>
+    <a href=" {% url 'create' %}">
+       Create
+    </a>
+</header>
+<br>
+<section>
+{% for poll in polls %}
+    {{ poll.question }}
+    <a href="{% url 'vote' poll.id %}">View</a>
+    <a href="{% url 'results' poll.id %}">Results</a>
+{% endfor %}
+</section>
+
+</body>
+</html>

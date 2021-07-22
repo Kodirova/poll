@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>results</title>
+</head>
+<body>
+<header>
+    <h1>
+  Poll
+</h1>
+    <a href="{% url 'home' %}">
+      Home
+    </a>
+    <br>
+    <a href=" {% url 'create' %}">
+       Create
+    </a>
+</header>
+<h1>
+  {{poll.question}}
+  </h1>
+<p>
+  {{ poll.option1 }} - {{poll.option1_count}}
+</p>
+<p>
+  {{ poll.option2 }} - {{poll.option2_count}}
+</p>
+<p>
+  {{ poll.option3 }} - {{poll.option3_count}}
+</p>
+<p>
+ Total -  {{poll.total}}
+</p>
+
+</body>
+</html>
