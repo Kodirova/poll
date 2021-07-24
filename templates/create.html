@@ -1,29 +1,20 @@
-{% load crispy_forms_tags %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>create poll</title>
-</head>
-<body>
-<header>
-    <h1>
-  Poll
-</h1>
-    <a href="{% url 'home' %}">
-      Home
-    </a>
-    <br>
-    <a href=" {% url 'create' %}">
-       Create
-    </a>
-</header>
-<form action = "" method = "post">
-    {% csrf_token %}
-
-        {{ form | crispy }}
-<br>
-    <input type="submit" value="Submit">
-</form>
-</body>
-</html>
+{% extends 'parts/body.html' %}
+{% block 'content' %}
+<section class="create">
+    <form method="post" class="form">
+             {% csrf_token %}
+        <label>Your question </label>
+        <textarea class="textarea" rows="3" cols="50"  name="question" placeholder="question"></textarea>
+        <label>option1
+            <input type="text" name="option1" placeholder="option1">
+        </label>
+        <label>option2
+            <input type="text" name="option2" placeholder="option2">
+        </label>
+        <label>option3
+            <input type="text" name="option3" placeholder="option3">
+        </label>
+    <button class="button" type="submit"> Submit </button>
+    </form>
+</section>
+{% endblock %}

@@ -1,22 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>results</title>
-</head>
-<body>
-<header>
-    <h1>
-  Poll
-</h1>
-    <a href="{% url 'home' %}">
-      Home
-    </a>
-    <br>
-    <a href=" {% url 'create' %}">
-       Create
-    </a>
-</header>
+{% extends 'parts/body.html' %}
+{% block 'content' %}
+<section class="results">
 <h1>
   {{poll.question}}
   </h1>
@@ -32,6 +16,5 @@
 <p>
  Total -  {{poll.total}}
 </p>
-
-</body>
-</html>
+</section>
+{% endblock %}

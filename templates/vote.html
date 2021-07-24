@@ -1,34 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>vote</title>
-</head>
-<body>
-<header>
-    <h1>
-  Poll
-</h1>
-    <a href="{% url 'home' %}">
-      Home
-    </a>
-    <br>
-    <a href=" {% url 'create' %}">
-       Create
-    </a>
-</header>
-{{ poll.question }}
-<br>
- <form action="" method="post">
-     {% csrf_token %}
- <input type="radio"  name="poll" value="option1">
- <label>{{ poll.option1 }}</label>
-<input type="radio"  name="poll" value="option2">
- <label>{{ poll.option2 }}</label>
- <input type="radio"  name="poll" value="option3">
- <label>{{ poll.option3 }}</label>
-     <br>
-     <input type="submit" value="Submit">
-</form>
-</body>
-</html>
+{% extends 'parts/body.html' %}
+{% block 'content' %}
+
+<section class="vote">
+    <div class="poll">
+    <p>{{poll.question}}</p>
+    </div>
+    <form action="" method="post">
+        {% csrf_token %}
+    <div class="items">
+        <input type="radio"  name="poll" value="option1">
+        <label>{{poll.option1}}</label>
+        <input type="radio"  name="poll" value="option2">
+        <label>{{poll.option2}}</label>
+        <input type="radio"  name="poll" value="option3">
+        <label>{{poll.option3}}</label>
+        </div>
+        <div class="submit">
+        <input type="submit" value="Submit" class="button">
+        </div>
+    </form>
+</section>
+{% endblock %}
